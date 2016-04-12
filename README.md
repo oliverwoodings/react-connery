@@ -18,3 +18,14 @@ const app = <div>Spice me up scotty</div>
 
 ReactDOM.render(app, container)
 ```
+
+
+### Exshample
+
+From thish...
+
+![](http://i.imgur.com/Pss1P9W.png)
+
+to thish...
+
+![](http://g.recordit.co/2cPDpajYmt.gif)

@@ -9,7 +9,7 @@ function hijack (node) {
     return connerify(node)
   } else if (!node) {
     return node
-  } else if (typeof node.type !== 'string') {
+  } else if (typeof node.type !== 'string' && node.type) {
     if (!node.type.prototype.render) {
       node = wrapShtatelesh(node)
     }
@@ -22,14 +22,13 @@ function hijack (node) {
 }
 
 function hijackProps (node) {
-  const newProps = clone(node.props)
-  const { type, value, placeholder } = newProps
-  if (node.type === 'input' && type === 'text') {
-    if (value) {
-      newProps.value = connerify(value)
+  const newProps = clone(node.props) || {}
+  if (node.type === 'input' && (newProps.type === 'text' || !newProps.type)) {
+    if (newProps.value) {
+      newProps.value = connerify(newProps.value)
     }
-    if (placeholder) {
-      newProps.placeholder = connerify(placeholder)
+    if (newProps.placeholder) {
+      newProps.placeholder = connerify(newProps.placeholder)
     }
   }
   return newProps
