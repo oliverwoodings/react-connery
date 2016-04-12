@@ -1,3 +1,6 @@
+var clone = require('lodash.clone')
+var React = require('react')
+
 module.exports = hijack
 
 function hijack (node) {
@@ -12,8 +15,23 @@ function hijack (node) {
     wrapRender(node.type)
   }
 
+  const newProps = hijackProps(node)
   const newChildren = hijackChildren(node.props.children)
-  return React.cloneElement(node, node.props, newChildren)
+  return React.cloneElement(node, newProps, newChildren)
+}
+
+function hijackProps (node) {
+  const newProps = clone(node.props)
+  const { type, value, placeholder } = newProps
+  if (node.type === 'input' && type === 'text') {
+    if (value) {
+      newProps.value = connerify(value)
+    }
+    if (placeholder) {
+      newProps.placeholder = connerify(placeholder)
+    }
+  }
+  return newProps
 }
 
 function hijackChildren (children) {
@@ -44,11 +62,11 @@ function connerify (word) {
 }
 
 function wrapShtatelesh (node) {
-  class WrappedShtatelesh extends React.Component {
-    render () {
+  var WrappedShtatelesh = React.createClass({
+    render: function () {
       return node.type(this.props)
     }
-  }
+  })
 
-  return <WrappedShtatelesh {...node.props} />
+  return React.createElement(WrappedShtatelesh, node.props, node.props.children)
 }

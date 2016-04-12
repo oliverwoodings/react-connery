@@ -1,0 +1,26 @@
+{
+  "name": "react-connery",
+  "version": "1.0.0",
+  "description": "Shpice up your React appsh with shome Sean Connery magic",
+  "main": "indexsh.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliverwoodings/react-connery.git"
+  },
+  "keywords": [
+    "Sean",
+    "Connery"
+  ],
+  "author": "Oliver Woodings",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oliverwoodings/react-connery/issues"
+  },
+  "homepage": "https://github.com/oliverwoodings/react-connery#readme",
+  "dependencies": {
+    "lodash.clone": "^4.3.2"
+  }
+}
