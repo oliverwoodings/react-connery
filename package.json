@@ -1,6 +1,6 @@
 {
   "name": "react-connery",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shpice up your React appsh with shome Sean Connery magic",
   "main": "indexsh.js",
   "scripts": {
