@@ -1,5 +1,6 @@
 var clone = require('lodash.clone')
 var React = require('react')
+var connerify = require('connerify')
 
 module.exports = hijack
 
@@ -52,13 +53,6 @@ function wrapRender (type) {
   proto.render = function () {
     return hijack(this._oldRender.apply(this, arguments))
   }
-}
-
-function connerify (word) {
-  return word
-    .replace(/(s)([^\ssh])/gi, '$1h$2')
-    .replace(/(x)([^\ss])/gi, '$1sh$2')
-    .replace(/nce/gi, 'nsh')
 }
 
 function wrapShtatelesh (node) {
