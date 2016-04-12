@@ -4,6 +4,8 @@ Shpice up your React appsh with shome Sean Connery magic
 
 ![](http://i.imgur.com/u1aJIws.png)
 
+Makesh ushe of [connerify](https://www.npmjs.com/package/connerify)
+
 
 ### Ushage
 
